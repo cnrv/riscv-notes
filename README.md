@@ -2,9 +2,10 @@
 A collection of notes related to RISC-V before they are processed and digested
 
 - Architecture
-  + [RISC-V ISA](architecture/instruction.md)
+  + [RISC-V ISA                        ](architecture/instruction.md   )
+  + [Generic RISC-V SoC platform       ](architecture/platform.md      )
 - Microarchitecture
-  + [Rocket](microarchitecture/rocket.md)
+  + [Rocket                            ](microarchitecture/rocket.md   )
 
 
 
