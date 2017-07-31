@@ -1,6 +1,13 @@
 RiSC-V ISA
 ------------------------------------
 
+### LL/SC vs CAS
+Both load-lock/store-check(LL/SC) and change-and-swap(CAS) can be used for cirticial section.
+LL/SC is chosen due to the [ABA](https://en.wikipedia.org/wiki/ABA_problem) issue.
+
+[[riscv-isa-manual](https://github.com/riscv/riscv-isa-manual/issues/93)]
+[[paper](http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.140.8385)]
+
 ### Proposal to add explicit cache control instructions
 - Need to explicit cache control instructions to fence, prefetch, pin, flush and optimise.
 - Need to be side-effect free for microarchitects that do not support.
