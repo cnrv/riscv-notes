@@ -8,6 +8,7 @@ A collection of notes related to RISC-V before they are processed and digested
   + [Rocket                            ](microarchitecture/rocket.md   )
   + [Chisel                            ](microarchitecture/chisel.md   )
 - Software
+  + [RISC-V toolchain                  ](software/toolchain.md         )
   + [Related tools                     ](software/tool.md              )
   + [Benchmark                         ](software/benchmark.md         )
 
