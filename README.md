@@ -1,7 +1,10 @@
 # riscv-notes
 A collection of notes related to RISC-V before they are processed and digested
 
-
+- Architecture
+  + [RISC-V ISA](architecture/instruction.md)
+- Microarchitecture
+  + [Rocket](microarchitecture/rocket.md)
 
 
 
