@@ -6,6 +6,8 @@ A collection of notes related to RISC-V before they are processed and digested
   + [Generic RISC-V SoC platform       ](architecture/platform.md      )
 - Microarchitecture
   + [Rocket                            ](microarchitecture/rocket.md   )
+- Software
+  + [Related tools                     ](software/tool.md              )
 
 
 

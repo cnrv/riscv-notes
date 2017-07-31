@@ -32,17 +32,6 @@ RiSC-V ISA
 [[cnrv](https://github.com/cnrv/home/blob/master/bi-week-rpts/2017-07-20.md#提议向risc-v-b扩展指令集bit操作扩展添加选择mux指令)]
 
 
-### rv8 (RISC-V simulator for x86-64)
-rv8 is a RISC-V simulation suite comprising a high performance x86-64 binary translator, a user mode simulator, a full system emulator, an ELF binary analysis tool and ISA metadata:
-
-- rv-jit - user mode x86-64 binary translator
-- rv-sim - user mode system call proxy simulator
-- rv-sys - full system emulator with soft MMU
-- rv-bin - ELF disassembler and histogram tool
-- rv-meta - code and documentation generator
-
-[[rv8](https://rv8.io/)]
-
 ### Fused AUIPC+JALR for direct jump
 - The concept and requirement for micro-op fussion.
 - Use RVC with micro-op for complex single cycle operations.
