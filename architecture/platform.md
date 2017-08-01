@@ -1,6 +1,17 @@
 Generic RISC-V SoC platform
 -----------------------------------------------
 
+### The order of interrupts
+
+Multiple simultaneous interrupts destined for different privilege 
+modes are handled in decreasing order of destined privilege mode. 
+Multiple simultaneous interrupts destined for the same privilege mode 
+are handled in the following decreasing priority order: external 
+interrupts, software interrupts, then timer interrupts. Synchronous 
+exceptions are of lower priority than all interrupts.
+
+[[isa-dev](https://groups.google.com/a/groups.riscv.org/forum/#!msg/isa-dev/_SECLWl8qWk/JY02hJAwCgAJ)]
+
 ### Security loophole: mapping machine memory to kernel page
 
 Reported a security loophole before the enforcement of physical memory protection (PMP):
