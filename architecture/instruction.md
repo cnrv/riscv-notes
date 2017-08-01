@@ -2,7 +2,7 @@ RiSC-V ISA
 ------------------------------------
 
 ### LL/SC vs CAS
-Both load-lock/store-check(LL/SC) and change-and-swap(CAS) can be used for cirticial section.
+Both load-lock/store-check(LL/SC) and compare-and-swap(CAS) can be used for cirticial section.
 LL/SC is chosen due to the [ABA](https://en.wikipedia.org/wiki/ABA_problem) issue.
 
 It is dangerous for simple processors to break AMO (atomic operations, including CAS) into two operations.
