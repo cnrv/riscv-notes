@@ -1,6 +1,12 @@
 RISC-V toolchain
 -------------------------------------------
 
+### what is bool
+
+Any compiler generated bool should be 0x1.
+
+[[isa-dev](https://groups.google.com/a/groups.riscv.org/forum/#!msg/isa-dev/IutUMddVTzA/xjp7Qqb4BAAJ)]
+
 ### gp register for long jump optimization at linking time
 
 [[sw-dev 1](https://groups.google.com/a/groups.riscv.org/forum/#!msg/sw-dev/60IdaZj27dY/5MydPLnHAQAJ)]
