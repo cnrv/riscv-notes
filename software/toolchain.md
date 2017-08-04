@@ -1,6 +1,12 @@
 RISC-V toolchain
 -------------------------------------------
 
+### gp register for long jump optimization at linking time
+
+[[sw-dev 1](https://groups.google.com/a/groups.riscv.org/forum/#!msg/sw-dev/60IdaZj27dY/5MydPLnHAQAJ)]
+[[sw-dev 2](https://groups.google.com/a/groups.riscv.org/forum/#!msg/sw-dev/60IdaZj27dY/5IqqFBL0AQAJ)]
+[[mcu-eclipse](https://gnu-mcu-eclipse.github.io/arch/riscv/programmer/#the-gp-global-pointer-register)]
+
 ### Register clobbering for context switching
 
 Use `-fcall-saved-t6` etc for registers to spare.
