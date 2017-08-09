@@ -1,6 +1,14 @@
 Generic RISC-V SoC platform
 -----------------------------------------------
 
+### Update of `A` and `D` bit in page table entry
+
+`A` and `D` bits in the page table entry are used to simplify the process of swapping pages from memory to secondary storage.
+However, the update of `A` (when accessed) and `D` (when written to) is not hardware managed to my surprise.
+So for the first load (setting `A`) or store (setting `D`), a page fault is normally raised and the page table entry is found through a page table walk.
+
+[[hw-dev](https://groups.google.com/a/groups.riscv.org/forum/#!msg/hw-dev/edqKVHAy0lQ/f_SBDsyFBAAJ)]
+
 ### The order of interrupts
 
 Multiple simultaneous interrupts destined for different privilege 
