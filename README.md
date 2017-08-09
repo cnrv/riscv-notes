@@ -12,6 +12,7 @@ A collection of notes related to RISC-V before they are processed and digested
   + [RISC-V toolchain                  ](software/toolchain.md         )
   + [Related tools                     ](software/tool.md              )
   + [Benchmark                         ](software/benchmark.md         )
+  + [Operating system related          ](software/os.md                )
 
 
 
