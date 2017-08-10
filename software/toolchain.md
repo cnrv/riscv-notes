@@ -1,6 +1,17 @@
 RISC-V toolchain
 -------------------------------------------
 
+### multilib support
+
+Multilib is a compiler utility that allow multiple crosscompiler (for different ISA/ABI to coexist).
+The current RISCV GCC already supports multilib.
+
+[[sw-dev 1](https://groups.google.com/a/groups.riscv.org/forum/#!msg/sw-dev/nkiTe3stA2o/hT2ebjBmCQAJ)]
+[[sw-dev 2](https://groups.google.com/a/groups.riscv.org/forum/#!msg/sw-dev/nkiTe3stA2o/Ntb5x6y8AAAJ)]
+[[sw-dev 3](https://groups.google.com/a/groups.riscv.org/forum/#!msg/sw-dev/fO_Xv_kFfRI/I2A0eyzlCQAJ)]
+[[sw-dev 4](https://groups.google.com/a/groups.riscv.org/forum/#!msg/sw-dev/fO_Xv_kFfRI/AFnDQtAYBgAJ)]
+
+
 ### what is bool
 
 Any compiler generated bool should be 0x1.
