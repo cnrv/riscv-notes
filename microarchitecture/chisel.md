@@ -1,6 +1,12 @@
 Chisel
 ----------------------------
 
+### Iterate IO bundle
+
+Here is an issue about how to iterate an IO bundle and print out the names. Interesting to know.
+
+[[Chisel3 PR](https://github.com/freechipsproject/chisel3/issues/662)]
+
 ### Chisel mega refactor
 - Input(...) and Output(...) now (effectively) recursively override their elements' directions
 - Nodes given userDirection (Input, Output, Flip - what the user assigned to that node) and actualDirection (Input, Output, None, but also Bidirectional and BidirectionalFlip for mostly Aggregates), because of the above (since a higher-level Input(...) can override the locally specified user direction).
