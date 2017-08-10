@@ -1,11 +1,17 @@
 Chisel
 ----------------------------
 
+### Unexplanable issue with using UIntToOH1
+
+Clearly they do not understand what had happened !?  :-)
+
+[[Rocket PR](https://github.com/freechipsproject/rocket-chip/pull/946)]
+
 ### Iterate IO bundle
 
 Here is an issue about how to iterate an IO bundle and print out the names. Interesting to know.
 
-[[Chisel3 PR](https://github.com/freechipsproject/chisel3/issues/662)]
+[[Chisel3 issue](https://github.com/freechipsproject/chisel3/issues/662)]
 
 ### Chisel mega refactor
 - Input(...) and Output(...) now (effectively) recursively override their elements' directions
