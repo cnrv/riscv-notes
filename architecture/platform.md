@@ -1,6 +1,13 @@
 Generic RISC-V SoC platform
 -----------------------------------------------
 
+### Context switch with non-standard system state extension
+
+When some platform has non-standard state extension, such as extra state CSRs, which needs to be pushed to stack during context switching,
+some extra SBI functions should be defined in the spec for storing these states.
+
+[[isa-dev](https://groups.google.com/a/groups.riscv.org/forum/#!msg/isa-dev/xiFzYJEaw48/biYm9W3DBwAJ)]
+
 ### Update of `A` and `D` bit in page table entry
 
 `A` and `D` bits in the page table entry are used to simplify the process of swapping pages from memory to secondary storage.
