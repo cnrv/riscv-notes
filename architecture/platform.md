@@ -1,6 +1,25 @@
 Generic RISC-V SoC platform
 -----------------------------------------------
 
+### Explanation about the design intention of SIP/UIP
+
+xTIP does require going through M-mode, 
+because the design uses a single timer to reduce hardware cost, rather 
+than having one per privilege mode.  All conceptual timers are 
+multiplexed in software on the lone M-mode timer. 
+
+xEIP does not require going through M-mode; in fact, it's read-only in 
+M-mode, too.  It is cleared by interacting with the interrupt 
+controller via MMIO.
+
+Writable-SEIP is only writable from M-mode.  The reason is that 
+the feature is intended for emulation/virtualization of the PLIC for 
+S-mode by M-mode, so the bit should be cleared by interacting with the 
+PLIC (with a trap into M-mode).  It would be a virtualization hole to 
+allow S-mode to write it. 
+
+[[isa-dev](https://groups.google.com/a/groups.riscv.org/forum/#!msg/isa-dev/yO425WGpvhA/vvt7ANd9AgAJ)]
+
 ### Context switch with non-standard system state extension
 
 When some platform has non-standard state extension, such as extra state CSRs, which needs to be pushed to stack during context switching,
