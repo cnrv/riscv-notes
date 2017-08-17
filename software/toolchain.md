@@ -1,6 +1,16 @@
 RISC-V toolchain
 -------------------------------------------
 
+### Enable unaligned memory for small code size
+
+Unaligned memory access is definite evil and should be avoid by all means.
+However, it is really desprate, unaligned memory access can be supported by traps.
+To enable unalign memory acess:
+
+> That only happens if you do -Os -mtune=size. If you just do -Os it shouldn't do misaligned accesses.
+
+[[riscv-gcc PR #88](https://github.com/riscv/riscv-gcc/pull/88)]
+
 ### multilib support
 
 Multilib is a compiler utility that allow multiple crosscompiler (for different ISA/ABI to coexist).
