@@ -1,6 +1,28 @@
 Chisel
 ----------------------------
 
+### Bundles with structurally typed fields in compatibility mode fail in Scala 2.12
+
+This is definitely a gotcha of Chisel.
+
+Compiled with Scala 2.12, the following code:
+
+    import Chisel._
+    val myReset = true.B
+    class ModuleExplicitReset(reset: Bool) extends Module(_reset = reset) {
+      val io = new Bundle {
+        val done = Bool(OUTPUT)
+      }
+      io.done := false.B
+    }
+produces
+
+Error:(14, 10) value done is not a member of Chisel.Bundle
+      io.done := false.B
+Wrapping the io definition in IO() or extending chisel3.core.UserModule instead of chisel3.core.LegacyModuleeliminates the error. It seems to be a property of the LegacyModule definition.
+
+[[Chisel3 issue 606](https://github.com/freechipsproject/chisel3/issues/606)]
+
 ### Unexplanable issue with using UIntToOH1
 
 Clearly they do not understand what had happened !?  :-)
