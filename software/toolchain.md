@@ -1,6 +1,25 @@
 RISC-V toolchain
 -------------------------------------------
 
+### 到底riscv\*\*-unknown-elf是不是bare-metal的交叉编译器？
+
+估计大多数人和我一样都觉得，难道不是吗？嗯，还真不一定是。
+[GNU MCU Eclipse RISC-V Embdedded GCC](https://gnu-mcu-eclipse.github.io/)的作者Liviu Ionescu最近就提出了这么个问题，然后引起了激烈的讨论。
+看起来，现在RISC-V提供的两个GCC工具链其实是这个样子的：
+
+- **riscv\*\*-unknown-linux-gnu** 是针对Linux操作系统的编译器，会链接glibc，利用Linux系统调用和相应应用接口(ABI)完成底层工作。
+- **riscv\*\*-unknown-elf** 是针对嵌入式系统的编译器，使用newlib的C库，不针对具体操作系统，利用libgloss定义的应用接口(ABI)完成底层操作。现在libgloss借用了Linux的ABI，所以使用riscv\*\*-unknown-elf编译的程序有可能也能正常运行于RISC-V Linux中。
+
+如果某一个嵌入式平台需要实现自己的底层调用，现在的办法一般是替换底层的ABI实现，但保留由libgloss定义的接口。
+如果希望进一步连ABI都彻底抛弃而直接调用硬件，现在只能通过附加的gcc参数来实现，比如`-nostdlib -lc` (不使用标准库但是用libc)。
+
+为了提供针对最基础嵌入式平台的bare-metal环境，SiFive的Palmer Dabbelt现已着手提供一个新的gcc工具链，暂且命名为**riscv\*\*-unknown-none**。
+
+相关讨论：
+#### Liviu Ionescu的问题 [https://goo.gl/VMBSPe](https://groups.google.com/a/groups.riscv.org/forum/#!msg/sw-dev/m_VQUQV_qw0/PA-TCzwDAQAJ)
+#### Palmer Dabbelt的回答 [https://goo.gl/bc8zSu](https://groups.google.com/a/groups.riscv.org/forum/#!msg/sw-dev/8szTggvdi48/q8kOlY1AAgAJ)
+#### 新工具链 [https://goo.gl/nD9HJD](https://groups.google.com/a/groups.riscv.org/forum/#!msg/sw-dev/8szTggvdi48/q8kOlY1AAgAJ)
+
 ### Enable unaligned memory for small code size
 
 Unaligned memory access is definite evil and should be avoid by all means.
