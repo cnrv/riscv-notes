@@ -1,6 +1,14 @@
 RISC-V toolchain
 -------------------------------------------
 
+### What is (or where is) Linux’s asm-generic
+
+A long time ago, every time Linux was ported to a new architecture, the architecture-specific code and headers were copy-and-pasted from another architecture, and then modified to fit the new architecture. This led to a maze of duplicated headers, all slightly different. Every change or bugfix to these headers and code had to be duplicated for every architecture in the kernel, taking care to respect the small differences.
+
+To reduce the duplication, the asm-generic directory was created. It has that name because architecture-dependent headers on Linux are named asm/something.h, while architecture-independent headers are named linux/something.h (on an installed system, they can be found at /usr/include/asm and /usr/include/linux). The headers which had been duplicated several times were deduplicated and moved to that directory. 
+
+[sw-dev](https://groups.google.com/a/groups.riscv.org/forum/#!msg/sw-dev/8szTggvdi48/ou02OME-AAAJ)
+
 ### 到底riscv\*\*-unknown-elf是不是bare-metal的交叉编译器？
 
 估计大多数人和我一样都觉得，难道不是吗？嗯，还真不一定是。
