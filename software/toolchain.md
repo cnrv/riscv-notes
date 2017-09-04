@@ -1,6 +1,13 @@
 RISC-V toolchain
 -------------------------------------------
 
+### Alternative toolchain compilation script from MCU Eclipse
+
+For what it's worth I (Tommy Murphy) would recommend Liviu's GNU MCU Eclipse scripted Docker approach to building the tools as it's much more structured, predictable and stable than building them manually using instructions that appear elsewhere which are often incomplete, confusing or simply incorrect/out of date.
+His build process pulls specific tarballs of the riscv-gcc, riscv-binutils-gdb and binutils-newlib sources from his github repo but with minor modifications to the script you can pull your own (e.g. if you want to build the bleeding edge stuff as I have done in the past few days).
+
+https://gnu-mcu-eclipse.github.io/toolchain/riscv/build-procedure/
+
 ### 现有GCC编译器支持的编译目标类型
 
 Michael Clark 很好地总结了当前riscv-unknown-elf-gcc编译器支持的编译目标和相应的参数配置。
