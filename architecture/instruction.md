@@ -1,6 +1,21 @@
 RiSC-V ISA
 ------------------------------------
 
+RISC-V的Formal Specification工作组
+
+这个小组正在制定 RISC-V 的 Formal specification。目前已经有五个组织，尝试着制定和实现。使用的语言包括L3、Verilog HDL、Haskell以及BSV。
+
+目前 Rishiyur所带的小组正要整合这几个 specification 和实现。
+
+有兴趣的朋友可以加入这小组参与讨论，或参考这些repo：
+
+Prashant Mundkur (SRI); written in L3. Repo.
+Clifford Wolf (individual): written in Verilog. Repo and slide.
+Adam Chlipala and group (MIT): written in Haskell.
+Rishiyur Nikhil (Bluespec, Inc.): written in BSV. Repo.
+Team of Peter Sewell in Cambridge : written in SAIL. Repo.
+Link: https://goo.gl/iCUq1A
+
 ### LL/SC vs CAS
 Both load-lock/store-check(LL/SC) and compare-and-swap(CAS) can be used for cirticial section.
 LL/SC is chosen due to the [ABA](https://en.wikipedia.org/wiki/ABA_problem) issue.
