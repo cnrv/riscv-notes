@@ -1,7 +1,7 @@
 RiSC-V ISA
 ------------------------------------
 
-RISC-V的Formal Specification工作组
+### RISC-V的Formal Specification工作组
 
 这个小组正在制定 RISC-V 的 Formal specification。目前已经有五个组织，尝试着制定和实现。使用的语言包括L3、Verilog HDL、Haskell以及BSV。
 
