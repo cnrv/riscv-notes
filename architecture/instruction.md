@@ -9,12 +9,13 @@ RiSC-V ISA
 
 有兴趣的朋友可以加入这小组参与讨论，或参考这些repo：
 
-Prashant Mundkur (SRI); written in L3. Repo.
-Clifford Wolf (individual): written in Verilog. Repo and slide.
-Adam Chlipala and group (MIT): written in Haskell.
-Rishiyur Nikhil (Bluespec, Inc.): written in BSV. Repo.
-Team of Peter Sewell in Cambridge : written in SAIL. Repo.
-Link: https://goo.gl/iCUq1A
+1. Prashant Mundkur (SRI); written in L3. [Repo](https://github.com/pmundkur/l3riscv).
+2. Clifford Wolf (individual): written in Verilog. [Repo](https://github.com/cliffordwolf/riscv-formal) and [slide](http://www.clifford.at/papers/2017/riscv-formal/slides.pdf).
+3. Adam Chlipala and group (MIT): written in Haskell.
+4. Rishiyur Nikhil (Bluespec, Inc.): written in BSV. [Repo](https://github.com/rsnikhil/RISCV_ISA_Formal_Spec_in_BSV).
+5. Team of Peter Sewell in Cambridge : written in SAIL. [Repo](https://bitbucket.org/Peter_Sewell/sail/src/07fad742df72ff6e7bfb948c1c353a2cf12f5e28/risc-v/riscv.sail?fileviewer=file-view-default).
+
+Link: [https://goo.gl/iCUq1A](https://groups.google.com/a/groups.riscv.org/forum/?utm_medium=email&utm_source=footer#!topic/isa-dev/DxKrkE6_LOM)
 
 ### LL/SC vs CAS
 Both load-lock/store-check(LL/SC) and compare-and-swap(CAS) can be used for cirticial section.
