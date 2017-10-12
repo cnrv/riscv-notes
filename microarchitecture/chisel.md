@@ -1,6 +1,23 @@
 Chisel
 ----------------------------
 
+### Rocket-Chip支持使用dontTouch属性保留端口
+
+最近接个月，Chisel和FIRRTL的自动常数推断和信号去除功能不断完善，已经能较好地自动去掉电路中未被使用的信号和常量信号。
+但是这导致了整体Rocket-Chip自动生成的一个问题。在顶部未被连接的端口会被自动去除，导致很多端口丢失。
+现在我们终于可以使用Chisel的一个实验属性：dontTouch来确保需要保留的端口不被自动去除。
+
+#### Rocket-Chip PR \#1033 [https://git.io/vd6vf](https://github.com/freechipsproject/rocket-chip/pull/1033)
+
+### 告别Chisel cloneType 重载
+
+cloneType是Chisel中关于类型复制的重定义函数。
+所有需要放入列表型数据类型，比如Vec和Seq的Bundle类型对象，都需要对cloneType进行重载。
+这基本是一个重复性工作，但是忘记则会编译出错。
+现在，Chisel将能够自己生成对应cloneType函数，终于不再需要设计者手动重载了！
+
+#### Chisel3 PR \#653 [https://git.io/vdVOD](https://github.com/freechipsproject/chisel3/pull/653)
+
 ### Bundles with structurally typed fields in compatibility mode fail in Scala 2.12
 
 This is definitely a gotcha of Chisel.
