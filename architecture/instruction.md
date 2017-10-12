@@ -28,6 +28,21 @@ It is dangerous for simple processors to break AMO (atomic operations, including
 [[paper](http://citeseerx.ist.psu.edu/viewdoc/summary?doi=10.1.1.140.8385)]
 [[hw-dev](https://groups.google.com/a/groups.riscv.org/forum/#!msg/hw-dev/siW5CT4V5bY/284nC0_pBAAJ)]
 
+### 在LR/SC之间应禁止所有中断
+
+LR/SC是RISC-V支持复杂原子操作的方式。
+LR指令读一个地址并对该地址上锁。
+上锁后，处理器有16个周期完成一段小的原子操作片段。
+片段完成后，SC指令尝试写原上锁地址，如果锁没有被破坏，则写操作成功。否则，原子操作片段重新执行。
+任何对锁的直接操作，或者执行时间超过16个周期都会导致锁丢失。
+同时，在LR/SC之间也禁止任何中断服务。这里不是说主动禁止中断服务，而是任何中断都会导致锁丢失。
+这就引发了关于两个问题的确认：
+
+- 即使是deligated 用户级别中断服务也会导致锁丢失。
+- 这便导致原子操作片段中不能使用需要trap-and-emulate的指令，比如乘除法指令。实际上，spec规定无论硬件实现与否，都不要使用乘除法指令。
+
+#### 相关讨论 [https://goo.gl/UAciir](https://groups.google.com/a/groups.riscv.org/d/msg/isa-dev/FKWUf92UYsg/qDWvkhY_AAAJ)
+
 ### Proposal to add explicit cache control instructions
 - Need to explicit cache control instructions to fence, prefetch, pin, flush and optimise.
 - Need to be side-effect free for microarchitects that do not support.
