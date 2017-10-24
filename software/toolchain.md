@@ -1,6 +1,12 @@
 RISC-V toolchain
 -------------------------------------------
 
+### 在反汇编中使用原始机器指令和机器寄存器
+
+使用objdump对可执行文件进行反汇编默认使用宏指令代替特殊指令（比如用`li a5, 3`代替`addi x15, x0, 3`）和使用ABI寄存器命名代替机器命名（用`a5`替代`x15`）。如果需要反汇编成最原始的机器代码和机器寄存器，可以使用` --disassembler-options=no-aliases,numeric`参数。
+
+邮件列表中的讨论：[https://goo.gl/As1jec](https://groups.google.com/a/groups.riscv.org/d/msg/sw-dev/Z2MheQOf_Tc/3sQ6SQPxAgAJ)
+
 ### 使用编译参数在汇编代码中选择性地使用RVC压缩指令
 
 在全局禁止使用RVC指令的时候，汇编代码可以通过在代码中局部地启用RVC编译参数来启用压缩指令。
