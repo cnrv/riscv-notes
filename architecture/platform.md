@@ -1,6 +1,24 @@
 Generic RISC-V SoC platform
 -----------------------------------------------
 
+### 破坏执行中函数调用和函数返回严格配对的主要原因
+
+在使用控制流一致性（CFI）保护系统安全的方法中，利用硬件或软件的影子栈来跟踪合法的函数调用是一个重要方法。
+但是显式操作系统和软件的函数调用与函数返回并不是严格配对的。有的时候一个返回可能回调多个函数的压栈。
+最近邮件列表中便问到了这样的问题。导致这种不一致性的主要原因是什么。Andrew的回答还是非常清楚的。
+对于RISC-V来说，主要原因是长跳转（longjmp/setcontext）
+
+> Tail calls don't generally lead to unmached call-return pairs; the
+> tail-callee's return will match the original call.
+>
+> The main thing that screws up the return-address stack is context
+>switching (in the kernel, or in userspace via longjmp/setcontext).
+
+不明白这里长跳转的同学请脑补longjmp。这是迅速异常处理和可重入的一个重要概念。
+
+邮件列表的讨论：[https://goo.gl/sPTvvu](https://groups.google.com/a/groups.riscv.org/d/msg/sw-dev/8aorX2MraBE/R99kPUTjAwAJ)
+
+
 ### mtval 控制寄存器的取值和意图
 
 mtval是RISC-V priv. spec定义的一个CSR，旨在发生异常时，提供造成异常的错误地址和错误指令。
