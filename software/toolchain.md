@@ -1,6 +1,15 @@
 RISC-V toolchain
 -------------------------------------------
 
+### GCC能够利用特定处理器的load/store延迟优化程序吗？
+RISC-V的GCC已经支持mtune参数，在该参数中将load/store的代价设定为5([https://github.com/riscv/riscv-gcc/blob/riscv-gcc-7.2.0/gcc/config/riscv/riscv.c\#L299](https://github.com/riscv/riscv-gcc/blob/riscv-gcc-7.2.0/gcc/config/riscv/riscv.c#L299))，即增加内存指令相对ALU指令的惩罚比重。
+不过根据一个GCC维护者的解释，mtune中的内存访问代价只被用于指令选取。
+即当所有的逻辑寄存器用尽需要将数据暂存入栈(spill)，mtune的代价会被用于选择spill哪一个逻辑寄存器。
+而利用内存访问延迟最有效的方法是在指令调度的时候使用。该方式需要提供一个具体的流水线描述文件。
+现在RISC-V，或者具体地说，Rocket处理器还没有提供。
+
+RISC-V sw-dev上的讨论: https://groups.google.com/a/groups.riscv.org/d/msg/sw-dev/E4FYldExpCU/fAcAK6I8BgAJ
+
 ### 在反汇编中使用原始机器指令和机器寄存器
 
 使用objdump对可执行文件进行反汇编默认使用宏指令代替特殊指令（比如用`li a5, 3`代替`addi x15, x0, 3`）和使用ABI寄存器命名代替机器命名（用`a5`替代`x15`）。如果需要反汇编成最原始的机器代码和机器寄存器，可以使用` --disassembler-options=no-aliases,numeric`参数。
